@@ -1,0 +1,16 @@
+body {
+    background-color: #292929;
+}
+
+img {
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.15);
+    vertical-align: middle;
+}
+
+figure {
+    float: left;
+    margin: 5px;
+}
