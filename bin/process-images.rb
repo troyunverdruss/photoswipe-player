@@ -82,5 +82,5 @@ File.open 'index.html', 'w' do |f|
 end
 
 if File.exist? 'index.template.html'
-  File.rm 'index.template.html'
+  FileUtils.rm 'index.template.html'
 end
