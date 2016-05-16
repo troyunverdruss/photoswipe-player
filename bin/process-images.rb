@@ -80,3 +80,7 @@ File.open 'index.html', 'w' do |f|
     end
   end
 end
+
+if File.exist? 'index.template.html'
+  File.rm 'index.template.html'
+end
