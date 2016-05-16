@@ -11,6 +11,10 @@ img {
 }
 
 figure {
-    float: left;
+    display: inline-block;
     margin: 5px;
+}
+
+div.picture {
+    text-align: center;
 }
