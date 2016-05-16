@@ -55,7 +55,7 @@ Dir.glob 'img/*.jpg' do |pic|
 
   image_lines.push '<figure itemprop="associatedMedia">'
   image_lines.push "  <a href=\"#{pic}\" itemprop=\"contentUrl\" data-size=\"#{width}x#{height}\" data-index=\"#{data_index}\">"
-  image_lines.push "    <img class=\"lazy\" data-original=\"thumbs/#{name}\" height=\"#{height_t}\" width=\"#{width_t}\" itemprop=\"thumbnail\" alt=\"\">"
+  image_lines.push "    <img class=\"lazy thumbnail\" data-original=\"thumbs/#{name}\" height=\"#{height_t}\" width=\"#{width_t}\" itemprop=\"thumbnail\" alt=\"\">"
   image_lines.push '  </a>'
   image_lines.push '</figure>'
 
