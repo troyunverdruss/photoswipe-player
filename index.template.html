@@ -10,9 +10,15 @@
     <script type="text/javascript" src="res/photoswipe-ui-default.min.js"></script>
     <script type="text/javascript" src="res/photoswipe.min.js"></script>
 
+
+
     <script type="text/javascript">
+        function getThumb(index) {
+            return document.querySelectorAll('.thumbnail')[index];
+        }
+
         function getThumbBounds(index) {
-            var thumbnail = document.querySelectorAll('.thumbnail')[index];
+            var thumbnail = getThumb(index);
             var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
             var rect = thumbnail.getBoundingClientRect();
             return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
@@ -48,7 +54,6 @@
                     event.preventDefault();
 
                     var $index = $(this).index();
-                    console.log("Calculated index: " + $index);
                     var options = {
                         index: $index,
                         bgOpacity: 1.0,
@@ -58,6 +63,14 @@
                     };
 
                     var lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
+                    lightBox.listen('destroy', function() {
+                        var index = this.getCurrentIndex();
+                        var thumbnail = getThumb(index);
+                        setTimeout(function () {
+                            zenscroll.intoView(thumbnail);
+                        }, 500);
+
+                    });
                     lightBox.init();
                 });
             });
@@ -130,5 +143,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="res/zenscroll-min.js"></script>
 </body>
 </html>
